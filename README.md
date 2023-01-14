@@ -72,3 +72,43 @@ async function newmanRun() {
 newmanRun(); 
 ```
 > [newman option](https://learning.postman.com/docs/running-collections/using-newman-cli/newman-options/)
+
+### Integrate GoogleChat
+<img width="550" alt="image" src="https://user-images.githubusercontent.com/108819681/212491902-b63f4894-99dd-4936-9b67-376c146d22ea.png">
+
+**Send Message**
+```
+const axios = require(`axios`)
+
+const sendMessage = (title, subtitle, body) => {
+    // Pass incoming webhook URL with environment variable `WEBHOOK_URL`.
+    const WEBHOOK_URL = `${YOUR_GCHAT_WEBHOOK}`
+    const widget = { textParagraph: { text: body } }
+    axios.post(WEBHOOK_URL, {
+        cards: [
+            {
+                header: {
+                    title: title,
+                    // subtitle: subtitle,
+                    imageUrl: `${HeaderImage}`
+                },
+                sections: [
+                    {
+                        widgets: [widget],
+                    },
+                ],
+            },
+        ],
+    })
+        .then((res) => {
+            console.log(res)
+        })
+        .catch((err) => {
+            console.error(err.toJSON())
+        })
+}
+
+module.exports = {
+    sendMessage
+}
+```
