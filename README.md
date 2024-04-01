@@ -22,12 +22,13 @@ Project
 └─ .gitlab-ci.yml
 ```
 
-### 更新與維護流程
-1. Clone 專案 
-2. [更新] 在 Postman APP 寫完 Script 之後 export 放到指定環境的 collection 資料夾
-3. [維護] 把需要維護的 collection import 到 Postman APP 維護後再 export 放回去取代
-4. Push 回 Repository ( 依團隊 Version Controll Strategy 規範 )
-5. 串接 CI Check Script 執行起來的狀況
+### Process for Updating and Maintaining:
+
+1. Clone the project.
+2. [Updating]: After writing the script in the Postman app, export it and place it in the designated environment's collection folder.
+3. [Maintenance]: Import the collections that need maintenance into the Postman app, make necessary updates, then export them back to replace the originals.
+4. Push changes back to the repository following the team's version control strategy.
+5. Integrate with CI to check the script execution status.
 
 ### gitlab-ci.yml
 ```
